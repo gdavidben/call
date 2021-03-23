@@ -1,0 +1,18 @@
+quarkus:
+  application:
+    name: call
+  log:
+    level: ${LOG_LEVEL:INFO}
+  mongodb:
+    database: call
+    connection-string: ${DB_CONNECTION:mongodb://root:root@mongo:27017}
+
+call:
+  statistics-cache: 60 #in seconds
+  rates:
+    - 
+      until: 5 #in minutes
+      cost: 0.10
+    - 
+      until: 43200
+      cost: 0.05
