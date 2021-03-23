@@ -37,7 +37,7 @@ rates:
 You can build your application using:
 
 ```
-./mvnw clean package -DskipTestsClient
+./mvnw clean install -DskipTestsClient
 ```
 
 ## Running the application in dev mode
