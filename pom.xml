@@ -10,6 +10,7 @@
 		<module>call-api</module>
 		<module>call-service</module>
 		<module>call-client</module>
+		<module>call-interceptor</module>
 	</modules>
 
 	<scm>

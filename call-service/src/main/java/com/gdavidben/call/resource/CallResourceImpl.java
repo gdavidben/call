@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -15,6 +16,8 @@ import com.gdavidben.call.api.CallResource;
 import com.gdavidben.call.configuration.CallConfiguration;
 import com.gdavidben.call.exception.RequestException;
 import com.gdavidben.call.exception.ResourceNotFoundException;
+import com.gdavidben.call.interceptor.LogTime;
+import com.gdavidben.call.interceptor.LogTimeDetail;
 import com.gdavidben.call.payload.Call;
 import com.gdavidben.call.payload.Statistic;
 import com.gdavidben.call.payload.Type;
@@ -98,13 +101,10 @@ public class CallResourceImpl implements CallResource {
 	}
 
 	@Override
+	@LogTime
 	public Response statisticsCall() {
 		try {
-			LocalTime start = LocalTime.now();
 			List<Statistic> statistics = callService.statistics();
-			LocalTime end = LocalTime.now();
-			
-			LOG.info(String.format("Statistics in %dms", Duration.between(start, end).toMillis()));
 			
 			return ResponseUtils.ok(statistics, callConfiguration.getStatisticsCache());
 		} catch (Exception e) {
@@ -113,6 +113,8 @@ public class CallResourceImpl implements CallResource {
 		}
 	}
 	
-	
+	void observesLogTime(@Observes LogTimeDetail logTimeDetail) {
+		LOG.warn(logTimeDetail);
+	}
 
 }

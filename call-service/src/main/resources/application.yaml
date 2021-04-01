@@ -8,7 +8,8 @@ quarkus:
     connection-string: ${DB_CONNECTION:mongodb://root:root@mongo:27017}
 
 call:
-  statistics-cache: 60 #in seconds
+  max-time-response: 1 #in seconds
+  statistics-cache: 0 #in seconds
   rates:
     - 
       until: 5 #in minutes

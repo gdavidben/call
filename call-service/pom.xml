@@ -47,6 +47,11 @@
 			<version>${project.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.gdavidben</groupId>
+			<artifactId>call-interceptor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.quarkus</groupId>
