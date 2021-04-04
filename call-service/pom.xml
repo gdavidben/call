@@ -42,6 +42,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.gdavidben</groupId>
 			<artifactId>call-api</artifactId>
 			<version>${project.version}</version>
@@ -52,6 +57,19 @@
 			<artifactId>call-interceptor</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.gdavidben</groupId>
+			<artifactId>call-producer</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.gdavidben</groupId>
+			<artifactId>call-consumer</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>io.quarkus</groupId>

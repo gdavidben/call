@@ -17,3 +17,25 @@ call:
     - 
       until: 43200
       cost: 0.05
+
+# Configure the SmallRye Kafka connector
+kafka:
+  bootstrap:
+    servers: "127.0.0.1:9092"
+
+mp:
+  messaging:
+    incoming:
+      incalls:
+        connector: smallrye-kafka
+        topic: calls
+        broadcast: true
+        value:
+          deserializer: com.gdavidben.call.consumer.deserializer.CallDeserializer
+    outgoing:
+      outcalls:
+        connector: smallrye-kafka
+        topic: calls
+        broadcast: true
+        value:
+          serializer: io.quarkus.kafka.client.serialization.ObjectMapperSerializer

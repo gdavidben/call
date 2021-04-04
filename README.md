@@ -87,3 +87,17 @@ You can run your application in dev mode that enables live coding using:
 http://localhost:8080/q/swagger-ui/#/
 ```
 
+
+
+## Create a topic in kafka
+
+You can create a topic in kafka using:
+
+```
+./opt/bitnami/kafka/bin/kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic calls
+```
+
+
+
+
+
