@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
 		<groupId>com.gdavidben</groupId>
@@ -15,12 +17,12 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy-jackson</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-smallrye-openapi</artifactId>
@@ -43,6 +45,16 @@
 
 		<dependency>
 			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-opentracing</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.opentracing.contrib</groupId>
+		    <artifactId>opentracing-kafka-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
 		</dependency>
 
@@ -57,19 +69,19 @@
 			<artifactId>call-interceptor</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.gdavidben</groupId>
 			<artifactId>call-producer</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.gdavidben</groupId>
 			<artifactId>call-consumer</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>io.quarkus</groupId>

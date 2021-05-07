@@ -6,6 +6,11 @@ quarkus:
   mongodb:
     database: call
     connection-string: ${DB_CONNECTION:mongodb://root:root@mongo:27017}
+  jaeger:
+    endpoint: http://localhost:14268/api/traces
+    service-name: call
+    sampler-type: const
+    sampler-param: 1
 
 call:
   max-time-response: 1 #in seconds
@@ -18,11 +23,6 @@ call:
       until: 43200
       cost: 0.05
 
-# Configure the SmallRye Kafka connector
-kafka:
-  bootstrap:
-    servers: "127.0.0.1:9092"
-
 mp:
   messaging:
     incoming:
@@ -32,6 +32,8 @@ mp:
         broadcast: true
         value:
           deserializer: com.gdavidben.call.consumer.deserializer.CallDeserializer
+        interceptor:
+          classes: io.opentracing.contrib.kafka.TracingConsumerInterceptor
     outgoing:
       outcalls:
         connector: smallrye-kafka
@@ -39,3 +41,5 @@ mp:
         broadcast: true
         value:
           serializer: io.quarkus.kafka.client.serialization.ObjectMapperSerializer
+        interceptor:
+          classes: io.opentracing.contrib.kafka.TracingProducerInterceptor

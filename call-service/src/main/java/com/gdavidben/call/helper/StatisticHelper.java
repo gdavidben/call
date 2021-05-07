@@ -25,7 +25,7 @@ public class StatisticHelper {
 	private static Long SECS_OF_A_MIN = 60L;
 	
 	@Inject
-	private CallConfiguration callRateConfiguration;
+	CallConfiguration callRateConfiguration;
 	
 	private List<CallConfiguration.Rate> loadCallRates() {
 		return callRateConfiguration.getRates().parallelStream()
